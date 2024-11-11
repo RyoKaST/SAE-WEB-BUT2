@@ -1,0 +1,264 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2B3A55;
+    padding: 10px 20px;
+}
+
+.header .logo {
+    width: 100px;
+}
+
+.header nav ul {
+    margin-right: 20px;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Styles pour le menu déroulant */
+.header nav ul li.dropdown {
+    position: relative;
+}
+
+.header nav ul li .dropdown-toggle {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.header nav ul li .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #2B3A55;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+
+.header nav ul li .dropdown-menu li {
+    padding: 10px;
+}
+
+.header nav ul li .dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header nav ul li:hover .dropdown-menu {
+    display: block;
+}
+
+/* Optionally add hover effect */
+.header nav ul li .dropdown-menu li a:hover {
+    background-color: #1f2a3a;
+}
+
+.hero{
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.preambule {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.Comite {
+    margin-left: 10%;
+    margin-bottom: 50px;
+}
+
+.Comite h2 {
+    margin-bottom: 20px;
+}
+
+.Comite img {
+    margin-left: 20%;
+    width: 900px;
+}
+
+.Comite p{
+    font-size: 22px;
+    color: #2B3A55;
+    padding-right: 100px;
+}
+
+.Comite iframe{
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+}
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    background-color: #2B3A55;
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 10px;
+}
+
+.footer .contact-info p,
+.footer .footer-links a {
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .contact-info .email-link,
+.footer .footer-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .contact-info .email-link:hover,
+.footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-media a img {
+    width: 24px;
+    margin: 0 5px;
+    transition: transform 0.3s;
+}
+
+.footer .social-media a:hover img {
+    transform: scale(1.2);
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2B3A55;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    /* Header adjustments */
+    .header nav ul {
+        gap: 10px;
+    }
+
+    .Text-cadre {
+        flex: 1 1 45%;
+        margin: 10px;
+    }
+
+    .carousel .carousel-inner {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .header nav ul {
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .Text h2 {
+        font-size: 2rem;
+    }
+
+    .Text-conteneur {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .Text-cadre {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .carousel .carousel-inner {
+        height: 300px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    
+}
+
+@media (max-width: 576px) {
+    .header .logo {
+        width: 80px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .Text h2 {
+        font-size: 1.5rem;
+    }
+
+    .Text-cadre {
+        padding: 15px;
+    }
+
+    .carousel .carousel-inner {
+        height: 250px;
+    }
+
+    .footer .contact-info p,
+    .footer .footer-links a,
+    .footer .social-media a {
+        font-size: 14px;
+    }
+}

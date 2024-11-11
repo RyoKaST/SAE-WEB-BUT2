@@ -1,0 +1,111 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    background: url('../../img/hero.jpg') center/cover no-repeat;
+    height: 500px;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+/* Actions Section */
+.actions h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #2B3A55;
+}
+
+/* Carousel */
+.carousel .carousel-inner {
+    height: 500px;
+}
+
+.carousel-image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+}
+
+
+/* Responsive*/
+@media (max-width: 1024px) {
+    .Text-cadre {
+        flex: 1 1 45%;
+        margin: 10px;
+    }
+
+    .carousel .carousel-inner {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .Text h2 {
+        font-size: 2rem;
+    }
+
+    .Text-conteneur {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .Text-cadre {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .carousel .carousel-inner {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .Text h2 {
+        font-size: 1.5rem;
+    }
+
+    .Text-cadre {
+        padding: 15px;
+    }
+
+    .carousel .carousel-inner {
+        height: 250px;
+    }
+}
