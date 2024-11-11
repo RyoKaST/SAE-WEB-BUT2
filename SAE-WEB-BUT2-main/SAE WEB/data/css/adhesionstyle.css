@@ -1,0 +1,140 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.titleTop{
+    font-size: 5em;
+    color:#2B3A55;
+    text-align: center;
+}
+
+.imgStats{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.boxStats {
+    background-color: #2B3A55;
+    color: white;
+    padding:0 23px 0 50px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.imgStats, .boxStats {
+    min-height: 200px;
+}
+.boxStats strong {
+    font-size: 3em;
+}
+
+.paragraphe1{
+    font-size:1.2em;
+}
+
+.titleDonation{
+    padding:20px;
+    text-align: center;
+    font-size: 3em;
+    color:#2B3A55;
+}
+
+#timeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 200px 0 200px;
+    margin-bottom: 20px;
+}
+
+/* Cercles */
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #d3d3d3; /* Gris clair */
+    border: 2px solid black;
+}
+
+/* Lignes */
+.line {
+    flex: 1;
+    height: 3px;
+    background-color: black;
+}
+
+.formBody{
+    background-color:#2B3A55 ;
+    padding: 0 10px 20px 10px;
+    border-radius: 0 0 20px 20px;
+    color:white;
+}
+
+.formBody label{
+    padding-top: 1em;
+}
+
+.titleForm {
+    background-color:#4c507a;
+    text-align:center;
+    margin-bottom: 0;
+    border-radius: 20px 20px 0 0;
+    color:white;
+    padding: 15px 0;
+
+}
+
+.radio-group .amount-box {
+    font-size: 16px;
+    background-color: white;
+    color:black;
+    padding:0 10px;
+}
+
+.form input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+#divOrga{
+    display:none;
+}
+
+.payment-option{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:0 50px 0 50px;
+}
+
+.card-form {
+    display: none;
+    text-align: left;
+}
+
+.back-button {
+    background-color: #2B3A55;
+    color:white;
+    border:none;
+    display: block;
+    margin: 10px auto 0 auto;
+    font-size: 1.3em;
+}
+
+@media (min-width: 769px) {
+    /*bien joué si vous avez trouvé ;)*/
+    .imgStats{
+        height: 97%;
+    }
+}
+
+@media (max-width: 769px) {
+    .imgStats{
+        margin-bottom: 25px;
+    }
+}
