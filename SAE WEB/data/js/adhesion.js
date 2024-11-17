@@ -1,10 +1,10 @@
 // Sélectionne le conteneur principal
-const timelineContainer = document.getElementById('timeline-container');
+const timelineContainer = document.getElementById('breadcrumb');
 
 // Détermine le nombre de cercles
 const numberOfCircles = 3;
 
-// Boucle pour créer chaque cercle et ligne
+// Boucle pour créer le breadcrumb
 for (let i = 0; i < numberOfCircles; i++) {
     const circle = document.createElement('div');
     circle.classList.add('circle');
@@ -17,13 +17,14 @@ for (let i = 0; i < numberOfCircles; i++) {
     }
 }
 
+
 const checkboxAssociation = document.getElementById('checkboxAssociation');
-const divNom = document.getElementById('divNom');
-const divPrenom = document.getElementById('divPrenom');
-const divOrga = document.getElementById('divOrga')
 
 // Fonction pour masquer ou afficher les champs NOM et PRENOM
 checkboxAssociation.addEventListener('change', function() {
+    const divNom = document.getElementById('divNom');
+    const divPrenom = document.getElementById('divPrenom');
+    const divOrga = document.getElementById('divOrga')
     if (checkboxAssociation.checked) {
         // Si la checkbox est cochée, masquer les champs NOM et PRENOM afficher Organisation
         divNom.style.display = 'none';
@@ -38,13 +39,11 @@ checkboxAssociation.addEventListener('change', function() {
     }
 });
 
-// Fonction pour afficher ou masquer le formulaire de carte bancaire
+// Fonctions pour afficher ou masquer le formulaire de carte bancaire
 function showCardForm() {
     const cardForm = document.getElementById('card-form');
     cardForm.style.display = 'block'; // Affiche le formulaire
 }
-
-// Fonction pour masquer le formulaire de carte bancaire
 function hideCardForm() {
     const cardForm = document.getElementById('card-form');
     cardForm.style.display = 'none'; // Masque le formulaire
