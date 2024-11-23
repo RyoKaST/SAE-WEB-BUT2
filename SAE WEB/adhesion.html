@@ -47,11 +47,11 @@
     <h1 class="titleTop"> L’A.M.I à besoin de vous !</h1>
 
     <div class="row">
-        <div class="col-sm-12 col-md-8">
+        <div class="col-sm-12 col-lg-12 col-xl-8 ">
             <img src="./img/handicap.jpg" class="imgStats" alt="Personne souriant à la vie en fauteil roulant">
         </div>
 
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-lg-12 col-xl-4">
             <div class="boxStats">
                 <strong>6,3 mio</strong><br>
                 de personnes souffrant d'un handicap (physique, sensoriel ou cognitif)
@@ -89,6 +89,7 @@
     <div id="breadcrumb"></div>
 
     <div class="row">
+        <form class="formStyle" action="" method="post">
         <div class="col-sm-12 col-md-4 space">
             <h1 class="titleForm">MONTANT</h1>
             <div class="formBody">
@@ -109,7 +110,7 @@
                     </label>
                 </div>
 
-                <div>
+                <div class="radio-group">
                     <input type="radio" id="montant3" name="montant"/>
                     <label for="montant3">
                                 <span class="custom-amount">
@@ -130,11 +131,11 @@
                 <label for="checkboxAssociation"> Don au nom d'une organisation</label>
 
                 <div class="row">
-                    <div class="col-12 col-md-6" id="divNom">
+                    <div class="col-12 col-md-6">
                         <label for="formNom">NOM</label>
                         <input type="text" id="formNom" placeholder="Dupont" required>
                     </div>
-                    <div class="col-12 col-md-6 " id="divPrenom">
+                    <div class="col-12 col-md-6 ">
                         <label for="formPrenom">PRENOM</label>
                         <input type="text" id="formPrenom" placeholder="Jean" required>
                     </div>
@@ -163,6 +164,7 @@
                 <input type="text" id="formPays" placeholder="France" required>
             </div>
         </div>
+
 
         <div class="col-sm-12 col-md-4 space">
             <h1 class="titleForm">PAYEMENT</h1>
@@ -195,6 +197,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </div>
 </div>
 

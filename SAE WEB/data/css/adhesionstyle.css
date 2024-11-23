@@ -136,24 +136,33 @@
 }
 
 /* Conserve la taille de l'image */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .imgStats{
         height: 97%;
     }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) {
     .space{
         padding-bottom: 2em; /* Espace chaque colonne du formulaire lorsqu'elles sont empilées*/
     }
     #breadcrumb {
-        display: none;  /* Enlève le breadcrumb */
+        display: none;
     }
 }
 
-/* Réajuste les radio buttons */
 @media (max-width: 1199px ){
     .radio-group{
         display:flex;
     }
+    .titleForm{
+        font-size: 1.5em;
+    }
+    #breadcrumb {
+        padding:0 100px 0 100px;
+    }
+}
+
+.formStyle{
+    display: flex;
 }
