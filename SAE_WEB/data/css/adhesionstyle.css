@@ -1,0 +1,164 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.titleTop{
+    font-size: 5em;
+    color:#2B3A55;
+    text-align: center;
+}
+
+.imgStats{
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.boxStats {
+    background-color: #2B3A55;
+    color: white;
+    padding:0 23px 0 50px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+/* Permet d'aligner l'image avec les box */
+.imgStats, .boxStats {
+    min-height: 200px;
+}
+
+.boxStats strong {
+    font-size: 3em;
+}
+
+.paragraphe1{
+    font-size:1.2em;
+}
+
+.titleDonation{
+    padding:20px;
+    text-align: center;
+    font-size: 3em;
+    color:#2B3A55;
+}
+
+#breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 200px 0 200px;
+    margin-bottom: 20px;
+}
+/* Cercle du breadcrumb */
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #d3d3d3;
+    border: 2px solid black;
+}
+/* Cercle du breadcrumb */
+.line {
+    flex: 1;
+    height: 3px;
+    background-color: black;
+}
+
+/* Squelette de tous les forumlaires */
+.formBody{
+    background-color:#2B3A55 ;
+    padding: 0 10px 20px 10px;
+    border-radius: 0 0 20px 20px;
+    color:white;
+}
+
+/* Espacement entre tous les champs */
+.formBody label{
+    padding-top: 1em;
+}
+
+.titleForm {
+    background-color:#4c507a;
+    text-align:center;
+    margin-bottom: 0;
+    border-radius: 20px 20px 0 0;
+    color:white;
+    padding: 15px 0;
+
+}
+
+/* Stylise les valeurs des dons */
+.amount-box {
+    font-size: 16px;
+    background-color: white;
+    color:black;
+    padding:0 10px;
+}
+
+/* Stylise les champs de remplissage */
+.form input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+/* Masque le champ organisation */
+#divOrga{
+    display:none;
+}
+
+/* Mise en page des moyens de payement */
+.payment-option{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:0 50px 0 50px;
+}
+
+/* Masque le champ de la carte bancaire */
+.card-form {
+    display: none;
+    text-align: left;
+}
+
+/* Stylise le bouton retour */
+.back-button {
+    background-color: #2B3A55;
+    color:white;
+    border:none;
+    display: block;
+    margin: 10px auto 0 auto;
+    font-size: 1.3em;
+}
+
+/* Conserve la taille de l'image */
+@media (min-width: 768px) {
+    .imgStats{
+        height: 97%;
+    }
+}
+
+@media (max-width: 768px) {
+    .space{
+        padding-bottom: 2em; /* Espace chaque colonne du formulaire lorsqu'elles sont empilées*/
+    }
+    #breadcrumb {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px ){
+    .radio-group{
+        display:flex;
+    }
+    .titleForm{
+        font-size: 1.5em;
+    }
+    #breadcrumb {
+        padding:0 100px 0 100px;
+    }
+}
