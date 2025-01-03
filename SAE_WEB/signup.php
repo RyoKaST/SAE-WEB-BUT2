@@ -1,51 +1,45 @@
 <?php
-try {
-    $db_file = 'C:/Users/Bouzi/PhpstormProjects/SAE-WEB-BUT2/SAE_WEB/BD/BD.db'; // Chemin vers la base SQLite
-    $pdo = new PDO("sqlite:$db_file");
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données: " . $e->getMessage());
+if (!session_id()) {
+    session_start();
 }
+
+require_once 'User.php';
+require_once 'BddConnect.php';
+require_once 'SQLiteUserRepository.php';
+require_once 'Authentification.php';
+
+$bdd = new BddConnect();
+$pdo = $bdd->connexion();
+$userRepo = new SQLiteUserRepository($pdo);
+$auth = new Authentification($userRepo);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['signup-email']);
-    $password = password_hash($_POST['signup-pwd'], PASSWORD_BCRYPT);
-    $nom = trim($_POST['signup-last']);
-    $prenom = trim($_POST['signup-prenom']);
-    $civilite = $_POST['signup-civil'];
-
-    $age = isset($_POST['signup-age']) ? (int)$_POST['signup-age'] : null; // Optionnel
-
-    // Vérification des champs requis
-    if (empty($email) || empty($password) || empty($nom) || empty($prenom) || empty($civilite)) {
-        die("Tous les champs obligatoires doivent être remplis.");
-    }
+    $email = $_POST['signup-email'] ?? null;
+    $password = $_POST['signup-pwd'] ?? null;
+    $civilite = $_POST['signup-civil'] ?? null;
+    $nom = $_POST['signup-last'] ?? null;
+    $prenom = $_POST['signup-prenom'] ?? null;
 
     try {
-        // Vérifie si l'email existe déjà
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM Users WHERE email = :email");
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+        // Inscription
+        $user = new User($email, $password, $civilite, $nom, $prenom);
+        $retour = $userRepo->saveUser($user);
 
-        if ($stmt->fetchColumn() > 0) {
-            die("Cet email est déjà utilisé.");
+        if ($retour) {
+            $message = "Inscription réussie ! Vous pouvez vous connecter.";
+            $code = "success";
+        } else {
+            throw new Exception("Impossible d'enregistrer l'utilisateur.");
         }
-
-        // Insertion des données dans la base
-        $stmt = $pdo->prepare(
-            "INSERT INTO Users (email, password, Nom, Prenom, Civilite, Age) 
-             VALUES (:email, :password, :nom, :prenom, :civilite, :age)"
-        );
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':nom', $nom);
-        $stmt->bindParam(':prenom', $prenom);
-        $stmt->bindParam(':civilite', $civilite);
-        $stmt->bindParam(':age', $age);
-
-        $stmt->execute();
-
-        echo "Inscription réussie!";
-    } catch (PDOException $e) {
-        die("Erreur lors de l'inscription: " . $e->getMessage());
+    } catch (Exception $e) {
+        $message = "Erreur lors de l'inscription : " . $e->getMessage();
+        $code = "warning";
     }
+
+    $_SESSION['flash'][$code] = $message;
+
+    // Redirection vers la page principale ou autre
+    header("Location: index.php");
+    exit;
 }
+
