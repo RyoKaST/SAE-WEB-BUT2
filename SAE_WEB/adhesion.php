@@ -12,36 +12,9 @@
 </head>
 <body>
 <!-- Header -->
-<header class="header">
-    <a href="accueil.html">
-        <img src="img/LogoAMI.png" alt="Logo AMI" class="logo">
-    </a>
-    <nav>
-        <!-- Bouton hamburger pour les petits écrans -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <ul>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown"
-                   aria-expanded="false">Nos agences</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    <li><a class="dropdown-item" href="Agences/Agences-Rhone.html">Auvergne-Rhône-Alpes</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Bourgogne.html">Bourgogne Franche-Comté</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Centre.html">Centre</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Guyane.html">Guyane</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Aquitaine.html">Nouvelle Aquitaine</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-IDF.html">Île-de-France</a></li>
-                </ul>
-            </li>
-            <li><a href="actualite.html">Actualités</a></li>
-            <li><a href="./adhesion.html">Adhérer</a></li>
-            <li><a href="formulaire.html">Connexion</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+require_once 'header.php';
+?>
 
 <div class="container">
     <h1 class="titleTop"> L’A.M.I à besoin de vous !</h1>
@@ -202,25 +175,9 @@
 </div>
 
 <!-- Footer -->
-<footer class="footer">
-    <div class="contact-info">
-        <p><a href="mailto:contact@ami-nationale.com" class="email-link">contact@ami-nationale.com</a></p>
-        <p>03 85 29 46 00 | 06 12 45 02 09</p>
-        <p>132 Rue de la Charrière, 71000 Mâcon</p>
-    </div>
-    <div class="footer-links">
-        <a href="https://ami-nationale.com/politique-de-confidentialite/">Politique de confidentialité</a><br>
-        <a href="#">Mentions légales</a><br>
-        <a href="#">Devenir adhérent</a><br>
-        <a href="#">Nous contacter</a>
-    </div>
-
-    <div class="social-media">
-        <a href="https://www.facebook.com/AMinathandi?locale=fr_FR"><img src="img/facebook-icon.png"
-                                                                         alt="Facebook"></a>
-        <a href="https://x.com/ami_nationale"><img src="img/X-icon.png" alt="Twitter"></a>
-    </div>
-</footer>
+<?php
+require_once 'footer.php';
+?>
 <script src="./data/js/adhesion.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
