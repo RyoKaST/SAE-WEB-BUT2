@@ -21,24 +21,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prenom = $_POST['signup-prenom'] ?? null;
 
     try {
+        // Vérifier si l'utilisateur existe déjà
+        if ($userRepo->userExists($email)) {
+            throw new Exception("L'email est déjà utilisé. Veuillez en choisir un autre.");
+        }
+
         // Inscription
         $user = new User($email, $password, $civilite, $nom, $prenom);
         $retour = $userRepo->saveUser($user);
 
         if ($retour) {
-            $message = "Inscription réussie ! Vous pouvez vous connecter.";
-            $code = "success";
+            $_SESSION['flash']['success'] = "Inscription réussie ! Vous pouvez vous connecter.";
+            header("Location: index.php");
+            exit;
         } else {
             throw new Exception("Impossible d'enregistrer l'utilisateur.");
         }
     } catch (Exception $e) {
-        $message = "Erreur lors de l'inscription : " . $e->getMessage();
-        $code = "warning";
+        // Afficher un message d'erreur sur la page d'inscription
+        $_SESSION['flash']['warning'] = $e->getMessage();
+        header("Location: formulaire.php");
+        exit;
     }
-
-    $_SESSION['flash'][$code] = $message;
-
-    // Redirection vers la page principale ou autre
-    header("Location: index.php");
-    exit;
 }
+

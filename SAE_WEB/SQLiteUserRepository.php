@@ -35,4 +35,12 @@ class SQLiteUserRepository {
 
         return null;
     }
+
+    public function userExists(string $email): bool {
+        $stmt = $this->dbConnexion->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    }
+
 }

@@ -1,3 +1,7 @@
+<?php
+if(!session_id())
+    session_start();
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -15,6 +19,8 @@
 
 <?php
 require_once 'header.php';
+require_once 'flash.php';
+messageFlash();
 ?>
 
 <div id="auth">

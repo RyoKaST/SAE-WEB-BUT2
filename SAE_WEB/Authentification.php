@@ -1,7 +1,4 @@
 <?php
-
-
-
 class Authentification {
 
     private SQLiteUserRepository $userRepository;
