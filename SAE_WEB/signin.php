@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'prenom' => $user->getPrenom(),
         ];
         $_SESSION['flash']['success'] = "Connexion réussie. Bienvenue, " . $user->getPrenom() . " !";
+
         header("Location: index.php");
         exit;
     } catch (Exception $e) {
