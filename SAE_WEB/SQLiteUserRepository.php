@@ -10,8 +10,8 @@ class SQLiteUserRepository {
 
     public function saveUser(User $user): bool {
         $stmt = $this->dbConnexion->prepare(
-            "INSERT INTO Users (email, password, civilite, nom, prenom) 
-        VALUES (:email, :password, :civilite, :nom, :prenom)"
+            "INSERT INTO Users (email, password, civilite, nom, prenom, IdCateg) 
+        VALUES (:email, :password, :civilite, :nom, :prenom, :IdCateg)"
         );
 
         return $stmt->execute([
@@ -20,8 +20,10 @@ class SQLiteUserRepository {
             'civilite' => $user->getCivilite(),
             'nom' => $user->getNom(),
             'prenom' => $user->getPrenom(),
+            'IdCateg' => $user->getIdCateg()
         ]);
     }
+
 
 
     public function findUserByEmail(string $email): ?User {
@@ -30,11 +32,19 @@ class SQLiteUserRepository {
         $result = $stmt->fetch();
 
         if ($result) {
-            return new User($result['email'], $result['password'], $result['civilite'], $result['nom'], $result['prenom']);
+            return new User(
+                $result['email'],
+                $result['password'],
+                $result['civilite'],
+                $result['nom'],
+                $result['prenom'],
+                $result['Idcateg']
+            );
         }
 
         return null;
     }
+
 
     public function userExists(string $email): bool {
         $stmt = $this->dbConnexion->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
