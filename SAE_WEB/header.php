@@ -15,7 +15,7 @@
 
 
                 if ($idcateg === 2) {
-                    echo '<li><a href="questionnaire.php">Questionnaire</a></li>';
+                    echo '<li><a href="question.php">Questionnaire</a></li>';
                 } elseif ($idcateg === 3) {
                     echo '<li><a href="enquete.php">Enquête</a></li>';
                 }
