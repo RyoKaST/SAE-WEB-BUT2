@@ -22,7 +22,9 @@
                 </li>
                 <li><a href="actualite.php">Actualités</a></li>
                 <li><a href="adhesion.php">Adhérer</a></li>
-                <li><a href="formulaire.php">Connexion</a></li>
+                <li><a href="formulaire.php">
+                        <img src="img/formulaire_icon.png" alt="icon de connexion" class="icon">
+                    </a></li>
             </ul>
         </nav>
     </header>
