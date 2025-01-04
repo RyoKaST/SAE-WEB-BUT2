@@ -22,6 +22,8 @@
                 </li>
                 <li><a href="actualite.php">Actualités</a></li>
                 <li><a href="adhesion.php">Adhérer</a></li>
+                <li><a href="question.php">Questionnaire</a></li>
+
                 <li><a href="formulaire.php">
                         <img src="img/formulaire_icon.png" alt="icon de connexion" class="icon">
                     </a></li>
