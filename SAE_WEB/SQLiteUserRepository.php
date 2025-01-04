@@ -30,7 +30,7 @@ class SQLiteUserRepository {
         $result = $stmt->fetch();
 
         if ($result) {
-            return new User($result['email'], $result['password']);
+            return new User($result['email'], $result['password'], $result['civilite'], $result['nom'], $result['prenom']);
         }
 
         return null;
