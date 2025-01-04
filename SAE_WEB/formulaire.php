@@ -23,11 +23,19 @@ require_once 'header.php';
 require_once 'flash.php';
 messageFlash();
 if (isset($_SESSION['user'])) {
+    $idcateg = intval($_SESSION['user']['Idcateg']);
+    if ($idcateg === 1) {
+        $categ = "utilisateur";
+    } elseif ($idcateg === 2) {
+        $categ = "adherent";
+    }
+    else
+        $categ = 'administrateur';
     // Utilisateur connecté : affiche un message de bienvenue
     echo "<h2>Bienvenue, " . htmlspecialchars($_SESSION['user']['nom']) . " " . htmlspecialchars($_SESSION['user']['prenom']) . " !</h2>";
-    echo "<p>Vous êtes déjà connecté, inutile de remplir le formulaire.</p>";
+    echo "<p> Vous êtes enregistré en tant qu'$categ  </p>";
     echo "<a href='deconnexion.php'>Se déconnecter</a>";
-} else { // Si l'utilisateur n'est pas connecté, afficher le formulaire
+} else {
     ?>
     <div id="auth">
         <div class="auth-container">

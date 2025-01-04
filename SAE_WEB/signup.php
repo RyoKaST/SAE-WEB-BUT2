@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $civilite = $_POST['signup-civil'] ?? null;
     $nom = $_POST['signup-last'] ?? null;
     $prenom = $_POST['signup-prenom'] ?? null;
+    $IdCateg = 1; //Valeur par defaut
 
     try {
         // Vérifier si l'utilisateur existe déjà
@@ -27,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Inscription
-        $user = new User($email, $password, $civilite, $nom, $prenom);
+        $user = new User($email, $password, $civilite, $nom, $prenom, $IdCateg);
         $retour = $userRepo->saveUser($user);
 
         if ($retour) {
