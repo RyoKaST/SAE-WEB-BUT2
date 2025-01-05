@@ -1,52 +1,51 @@
+/* Normalisation des styles de base */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.hero img {
-    width: 23%;
-    display: block;
-    margin: 0 auto 40px;
-}
-
-.form {
-    padding: 0 600px;
-}
-
-.form-question {
+/* S'assurer que l'HTML et le body occupent toute la hauteur de l'écran */
+html, body {
+    height: 100%; /* Utiliser 100% de la hauteur de la fenêtre */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-    padding-top: 50px;
-}
-
-.form-input-select {
-    padding: 10px;
-    width: 100%;
-    border: solid rgba(55, 75, 191, 0.71) 1px;
-    border-radius: 8px;
-}
-
-.radio-button {
-    display: flex;
-    align-items: flex-start;
     flex-direction: column;
 }
 
-.formbold-input-radio {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
+/* Conteneur général du site */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Assure que le body prend au moins la hauteur de la page */
 }
 
+/* Header */
+header {
+    background-color: #4a6393;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Style général pour la section formulaire */
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: auto; /* Permet d'empêcher l'expansion excessive du formulaire */
+}
+
+/* Personnalisation des boutons radio */
 .radio-label {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 10px;
-    border: solid rgba(55, 75, 191, 0.71) 1px;
+    border: 1px solid rgba(55, 75, 191, 0.71);
     border-radius: 8px;
-    width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -58,7 +57,6 @@
 .form-input-radio {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
 }
 
 .custom-radio {
@@ -90,62 +88,79 @@
     background: white;
 }
 
+/* Style pour les boutons de soumission */
 .form-btn-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 .form-btn {
-    width: 20%;
     font-size: 16px;
-    border-radius: 5px;
     padding: 14px 25px;
     border: none;
-    font-weight: 500;
     background-color: #4a6393;
     color: white;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 25px;
+    transition: all 0.3s ease;
 }
 
 .form-btn:hover {
     background-color: #3b517a;
-    color: #f8f9fa;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
 }
 
-/* Responsive styles */
-@media screen and (max-width: 1200px) {
-    .form {
-        padding: 0 300px;
-    }
-    .form-btn {
-        width: 30%;
-    }
+/* Design du select */
+select.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-@media screen and (max-width: 768px) {
-    .form {
-        padding: 0 50px;
-    }
-    .hero img {
-        width: 35%;
-    }
-    .form-btn {
-        width: 50%;
-    }
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+    margin-top: auto; /* Permet au footer d'être toujours en bas de page */
 }
 
-@media screen and (max-width: 480px) {
-    .form {
-        padding: 0 20px;
-    }
-    .hero img {
-        width: 50%;
-    }
-    .form-btn {
-        width: 80%;
-    }
+footer a {
+    color: #6a64f1;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style de message de confirmation quand le questionnaire est déjà soumis */
+.thanks-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.thanks-message h1 {
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.thanks-message p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.thanks-message a {
+    background-color: #4a6393;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.thanks-message a:hover {
+    background-color: #3b517a;
 }
