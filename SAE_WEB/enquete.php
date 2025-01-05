@@ -312,6 +312,8 @@ try {
 } catch (Exception $e) {
     echo "<p>Erreur : " . htmlspecialchars($e->getMessage()) . "</p>";
 }
+
+require_once ('footer.php');
 ?>
 
 </body>
