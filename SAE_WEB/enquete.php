@@ -39,10 +39,17 @@ messageFlash();
 <?php
 try {
     $stmt = $pdo->prepare("
-        SELECT R.reponse, COUNT(R.Id)
-        FROM Reponse R 
-        WHERE R.IdQuestion = 1 
-        GROUP BY R.reponse
+        SELECT 
+    ORP.option AS libelle_reponse, 
+    COUNT(R.Id) AS nombre_reponses
+FROM 
+    Reponse R
+JOIN 
+    OptionsReponses ORP ON R.IdOption = ORP.IdOption
+WHERE 
+    ORP.IdQuestion = 1
+GROUP BY 
+    ORP.option;
     ");
     $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,7 +58,7 @@ try {
         echo "<table class='table'>";
         echo "<thead><tr><th>Réponse</th><th>Nombre de réponses</th></tr></thead><tbody>";
         foreach ($data as $row) {
-            echo "<tr><td>" . htmlspecialchars($row['reponse']) . "</td><td>" . htmlspecialchars($row['COUNT(R.Id)']) . "</td></tr>";
+            echo "<tr><td>" . htmlspecialchars($row['libelle_reponse']) . "</td><td>" . htmlspecialchars($row['nombre_reponses']) . "</td></tr>";
         }
         echo "</tbody></table>";
     } else {
