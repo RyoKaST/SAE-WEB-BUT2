@@ -6,12 +6,10 @@ if (!session_id()) {
 require_once 'User.php';
 require_once 'BddConnect.php';
 require_once 'SQLiteUserRepository.php';
-require_once 'Authentification.php';
 
 $bdd = new BddConnect();
 $pdo = $bdd->connexion();
 $userRepo = new SQLiteUserRepository($pdo);
-$auth = new Authentification($userRepo);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['signup-email'] ?? null;
