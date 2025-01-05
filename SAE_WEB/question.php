@@ -1,181 +1,70 @@
 <?php
-if (!session_id())
-    session_start();
+// Inclure la connexion à la base de données et démarrer la session
+require_once 'BddConnect.php'; // Assure-toi que cette classe est bien incluse pour la connexion
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php"); // Rediriger si non connecté
+    exit;
+}
+
+$bdd = new BddConnect();
+$pdo = $bdd->connexion();
+
+$idUser = $_SESSION['user']['Id']; // ID de l'utilisateur
+
+// Vérifier si l'utilisateur a déjà complété le questionnaire
+$userStmt = $pdo->prepare("SELECT AComplete FROM Users WHERE Id = :idUser");
+$userStmt->execute(['idUser' => $idUser]);
+$user = $userStmt->fetch(PDO::FETCH_ASSOC);
+
+// Si l'utilisateur a déjà complété le questionnaire
+if ($user && $user['AComplete']) {
+    echo "<h1>Merci d'avoir complété le questionnaire !</h1>";
+    exit; // Arrêter le script ici, aucun formulaire à afficher
+}
+
+// Récupérer les questions et options
+$questionsStmt = $pdo->query("SELECT * FROM Questions");
+$questions = $questionsStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>A.M.I - Questionnaire</title>
-    <link rel="stylesheet" href="./data/css/question.css">
-    <link rel="stylesheet" href="./data/css/commun.css">
-    <link rel="icon" type="image/png" href="./img/LogoAMI.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="./data/js/actualite.js"></script>
-    <script src="./data/js/global.js" type="module"> </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Questionnaire</title>
 </head>
 <body>
 
-<?php
-require_once 'header.php'
-?>
+<h1>Questionnaire</h1>
 
-<section class="hero">
-    <img src="img/Business%20Meeting%20Illustration.jpg"
-</section>
+<form action="traitement_question.php" method="post">
 
-<form action="traitement_question.php" method="POST">
+    <?php foreach ($questions as $question): ?>
+        <fieldset>
+            <legend><?php echo $question['Question']; ?></legend>
 
-    <div class="form">
+            <?php
+            // Récupérer les options pour chaque question
+            $optionsStmt = $pdo->prepare("SELECT * FROM OptionsReponses WHERE IdQuestion = :idQuestion");
+            $optionsStmt->execute(['idQuestion' => $question['IdQuestion']]);
+            $options = $optionsStmt->fetchAll(PDO::FETCH_ASSOC);
 
-        <label for="qstOne" class="form-question fw-bold fs-3">
-            Quelle région ?
-        </label>
-        <div class="dropdown-question">
-            <select name="qstOne" id="qstOne" class="form-input-select fs-5">
-                <option value="Selectionnez" disabled selected> Selectionnez votre région</option>
-                <option value="Ile de France">Ile de France</option>
-                <option value="Auvergne Rhone Alpes">Auvergne Rhone Alpes</option>
-                <option value="Haut de France">Haut de France</option>
-                <option value="Pays de la Loire">Pays de la Loire</option>
-                <option value="Bretagne">Bretagne</option>
-            </select>
-        </div>
+            // Créer les boutons radio pour chaque option
+            foreach ($options as $option):
+                ?>
+                <label>
+                    <input type="radio" name="qst<?php echo $question['IdQuestion']; ?>" value="<?php echo $option['Option']; ?>" required>
+                    <?php echo $option['Option']; ?>
+                </label><br>
+            <?php endforeach; ?>
+        </fieldset>
+    <?php endforeach; ?>
 
-        <label for="qstTwo" class="form-question fw-bold fs-3">
-            Quel âge ?
-        </label>
-        <div class="dropdown-question">
-            <select name="qstTwo" id="qstTwo" class="form-input-select fs-5">
-                <option value="Selectionnez" disabled selected> Selectionnez votre âge</option>
-                <option value="18-24">18-24 ans</option>
-                <option value="25-34">25-34 ans</option>
-                <option value="35-44">35-44 ans</option>
-                <option value="45-54">45-54 ans</option>
-                <option value="55-64">55-64 ans</option>
-                <option value="65+">65 ans et plus</option>
-            </select>
-        </div>
-
-        <label for="qstThree" class="form-question fw-bold fs-3">
-            Votre logement actuel répond-il aux normes d’accessibilité ?
-        </label>
-
-        <div class="radio-button">
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstThree" id="qstThree">
-                <span class="custom-radio"></span>
-                Oui
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstThree" id="qstThree">
-                <span class="custom-radio"></span>
-                Non
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstThree" id="qstThree">
-                <span class="custom-radio"></span>
-                Partiellement
-            </label>
-        </div>
-
-        <label for="qstFour" class="form-question fw-bold fs-3">
-            Trouvez-vous que votre lieu de vie est adapté à vos besoins spécifiques liés à votre handicap ?
-        </label>
-
-        <div class="radio-button">
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFour" id="qstFour">
-                <span class="custom-radio"></span>
-                Oui
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFour" id="qstFour">
-                <span class="custom-radio"></span>
-                Non
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFour" id="qstFour">
-                <span class="custom-radio"></span>
-                Partiellement
-            </label>
-        </div>
-
-        <label for="qstFive" class="form-question fw-bold fs-3">
-            Ce lieu de vie correspond-il a votre choix ?
-        </label>
-
-        <div class="radio-button">
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFive" id="qstFive">
-                <span class="custom-radio"></span>
-                Oui
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFive" id="qstFive">
-                <span class="custom-radio"></span>
-                Non
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstFive" id="qstFive">
-                <span class="custom-radio"></span>
-                Partiellement
-            </label>
-        </div>
-
-        <label for="qstSix" class="form-question fw-bold fs-3">
-            Avez-vous un accès facile aux soins médicaux dont vous avez besoin (généraliste, spécialiste, kinésithérapie, etc.) ?
-        </label>
-
-        <div class="radio-button">
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSix" id="qstSix">
-                <span class="custom-radio"></span>
-                Oui
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSix" id="qstSix">
-                <span class="custom-radio"></span>
-                Non
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSix" id="qstSix">
-                <span class="custom-radio"></span>
-                Partiellemnt
-            </label>
-        </div>
-
-        <label for="qstSeven" class="form-question fw-bold fs-3">
-            Sentez-vous isolé ou exclus socialement ?
-        </label>
-
-        <div class="radio-button">
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSeven" id="qstSeven">
-                <span class="custom-radio"></span>
-                Oui
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSeven" id="qstSeven">
-                <span class="custom-radio"></span>
-                Non
-            </label>
-            <label class="radio-label fs-5">
-                <input class="form-input-radio" type="radio" name="qstSeven" id="qstSeven">
-                <span class="custom-radio"></span>
-                Partiellement
-            </label>
-        </div>
-    </div>
-    <div class="form-btn-container">
-        <button class="form-btn fs-4">Send Feedback</button>
-    </div>
+    <button type="submit">Soumettre</button>
 </form>
 
-<?php
-require_once 'footer.php';
-?>
 </body>
 </html>

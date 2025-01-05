@@ -1,87 +1,69 @@
 <?php
 // Démarrer la session
-if (!session_id()) {
-    session_start();
-}
-
-require_once 'BddConnect.php'; // Inclusion de la connexion à la base de données
+session_start();
+require_once 'BddConnect.php'; // Assure-toi que cette classe est bien incluse pour la connexion
 
 // Connexion à la base de données
 $bdd = new BddConnect();
 $pdo = $bdd->connexion();
 
-// Vérifier si l'utilisateur est connecté et que son ID est dans la session
-if (isset($_SESSION['user']) && isset($_SESSION['user']['Id'])) {
-    $idUser = $_SESSION['user']['Id'];
-} else {
-    echo "Utilisateur non trouvé ou session non correctement initialisée.";
+// Vérifier si l'utilisateur est connecté et que l'ID est présent dans la session
+if (!isset($_SESSION['user']) || !isset($_SESSION['user']['Id'])) {
+    header('Location: login.php');
     exit;
 }
 
-// Vérifier si l'utilisateur a déjà complété le questionnaire
-if (isset($_SESSION['user']['AComplete']) && $_SESSION['user']['AComplete'] == true) {
-    echo "<h2>Merci d'avoir complété le questionnaire !</h2>";
-    exit;
-}
+$idUser = $_SESSION['user']['Id'];
 
-// Débogage : Afficher les données soumises dans POST
-echo "<h3>Données soumises (POST) :</h3>";
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-
+// Vérifier que les données du formulaire sont envoyées
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Tableau pour stocker les réponses et les ID des options
-    $reponses = [];
-    $idOptions = [];
 
-    // Vérifier les réponses et récupérer les IDs des options pour chaque question
-    for ($i = 1; $i <= 7; $i++) {
-        // Adapter en fonction des noms des questions dans votre formulaire (qstOne, qstTwo...)
-        if (isset($_POST['qst' . ucfirst(strval($i))])) {
-            $reponses['qst' . $i] = $_POST['qst' . ucfirst(strval($i))]; // Utilise qst1, qst2, etc. depuis le formulaire
+    // Récupérer les réponses du formulaire
+    $reponses = [];
+
+    // Traitement des réponses pour chaque question
+    for ($i = 1; $i <= 7; $i++) {  // Par exemple pour 7 questions
+        if (isset($_POST['qst' . $i])) {
+            $reponses[$i] = $_POST['qst' . $i];
         } else {
-            $reponses['qst' . $i] = null;
+            // Si pas de réponse sélectionnée, mettre à NULL
+            $reponses[$i] = NULL;
         }
     }
 
-    // Traiter les réponses pour chaque question
-    foreach ($reponses as $key => $reponse) {
-        if ($reponse !== null) {
-            // Extraire le numéro de la question (par exemple, 1, 2, 3,...)
-            $questionIndex = substr($key, 3);
+    // Préparer l'insertion des réponses dans la base de données
+    $stmtInsert = $pdo->prepare('INSERT INTO Reponse (Id, IdQuestion, Reponse, IdOption) VALUES (:IdUser, :IdQuestion, :Reponse, :IdOption)');
 
-            // Récupérer l'ID de l'option choisie dans la table 'OptionsReponses'
-            $stmt = $pdo->prepare('SELECT IdOption FROM OptionsReponses WHERE IdQuestion = :idQuestion AND Option = :option');
-            $stmt->execute([":idQuestion" => $questionIndex, ":option" => $reponse]);
-            $idOption = $stmt->fetch(PDO::FETCH_ASSOC);
+    // Insérer les réponses dans la base de données pour chaque question
+    foreach ($reponses as $questionIndex => $reponse) {
+        if ($reponse !== NULL) {
+            // Vérifier l'ID de l'option correspondante pour chaque réponse
+            $stmtOption = $pdo->prepare('SELECT IdOption FROM OptionsReponses WHERE IdQuestion = :IdQuestion AND Option = :Option');
+            $stmtOption->execute([
+                ':IdQuestion' => $questionIndex,
+                ':Option' => $reponse
+            ]);
+            $option = $stmtOption->fetch(PDO::FETCH_ASSOC);
 
-            // Si l'ID de l'option existe dans la base de données, insérer la réponse
-            if ($idOption) {
-                // Insérer la réponse dans la table 'Reponse'
-                $stmtInsert = $pdo->prepare('INSERT INTO Reponse (Id, IdQuestion, Reponse, IdOption) VALUES (:IdUser, :IdQuestion, :Reponse, :IdOption)');
+            if ($option) {
+                // Insertion de la réponse dans la table "Reponse"
                 $stmtInsert->execute([
                     ':IdUser' => $idUser,
                     ':IdQuestion' => $questionIndex,
                     ':Reponse' => $reponse,
-                    ':IdOption' => $idOption['IdOption']
+                    ':IdOption' => $option['IdOption']
                 ]);
             }
         }
     }
 
-    // Mettre à jour le statut du questionnaire comme complété pour cet utilisateur
-    try {
-        $updateStmt = $pdo->prepare('UPDATE Users SET AComplete = true WHERE Id = :id');
-        $updateStmt->execute([':id' => $idUser]);
-    } catch (PDOException $e) {
-        echo "Erreur lors de la mise à jour de l'utilisateur : " . $e->getMessage();
-        exit;
-    }
+    // Mettre à jour le statut du questionnaire dans la table Users
+    $stmtUpdate = $pdo->prepare('UPDATE Users SET AComplete = 1 WHERE Id = :IdUser');
+    $stmtUpdate->execute([':IdUser' => $idUser]);
 
-    // Message flash pour indiquer la soumission réussie
-    $_SESSION['flash']['success'] = "Merci d'avoir complété le questionnaire !";
-    header('Location: question.php'); // Redirection pour éviter une resoumission
+    // Rediriger avec un message de confirmation
+    $_SESSION['flash']['success'] = "Merci d'avoir complété le questionnaire.";
+    header('Location: question.php'); // Page de confirmation après soumission
     exit;
 }
-?>
+
