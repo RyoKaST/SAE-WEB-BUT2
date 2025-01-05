@@ -10,7 +10,7 @@ class SQLiteUserRepository {
 
     public function saveUser(User $user): bool {
         $stmt = $this->dbConnexion->prepare(
-            "INSERT INTO Users (email, password, civilite, nom, prenom, IdCateg) 
+            "INSERT INTO Users (email, password, Civilite, nom, prenom, IdCateg) 
         VALUES (:email, :password, :civilite, :nom, :prenom, :IdCateg)"
         );
 
@@ -35,10 +35,10 @@ class SQLiteUserRepository {
             return new User(
                 $result['email'],
                 $result['password'],
-                $result['civilite'],
+                $result['Civilite'],
                 $result['nom'],
                 $result['prenom'],
-                $result['Idcateg']
+                $result['IdCateg']
             );
         }
 

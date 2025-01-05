@@ -36,12 +36,15 @@ if (!session_id())
             <div class="dropdown-question">
                 <select name="qstOne" id="qstOne" class="form-input-select fs-5">
                     <option value="Selectionnez" disabled selected> Selectionnez votre région</option>
-                    <option value="idf">Ile de France</option>
-                    <option value="ara">Auvergne Rhone Alpes</option>
-                    <option value="hdf">Haut de France</option>
-                    <option value="pl">Pays de la Loire</option>
-                    <option value="bre">Bretagne</option>
+                    <option value="idf">Île-de-France</option>
+                    <option value="ara">Auvergne-Rhône-Alpes</option>
+                    <option value="bfc">Bourgogne-Franche-Comté</option>
+                    <option value="bretagne">Bretagne</option>
+                    <option value="nvl">Normandie</option>
+                    <option value="naqu">Nouvelle-Aquitaine</option>
+                    <option value="paca">Provence-Alpes-Côte d'Azur</option>
                 </select>
+
             </div>
 
             <label for="qstTwo" class="form-question fw-bold fs-3">
