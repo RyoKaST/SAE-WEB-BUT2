@@ -1,3 +1,8 @@
+<?php
+if (!session_id()) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,53 +10,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMI - Guyane</title>
-    <link rel="icon" type="image/png" href="../img/LogoAMI.png">
-    <link rel="stylesheet" href="../data/css/Agences.css">
-    <script src="../data/js/global.js" type="module"></script>
-
+    <link rel="icon" type="image/png" href="img/LogoAMI.png">
+    <link rel="stylesheet" href="data/css/Agences.css">
+    <link rel="stylesheet" href="data/css/commun.css">
+    <script src="data/js/global.js" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="../accueil.php">
-            <img src="../img/LogoAMI.png" alt="Logo AMI" class="logo">
-        </a>
+<?php
+require_once 'header.php';;
+?>
 
-        <nav>
-            <!-- Bouton hamburger pour les petits écrans -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <ul>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown"
-                        aria-expanded="false">Nos agences</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                        <li><a class="dropdown-item" href="../Agences/Agences-Rhone.html">Auvergne-Rhône-Alpes</a></li>
-                        <li><a class="dropdown-item" href="../Agences/Agences-Bourgogne.html">Bourgogne
-                                Franche-Comté</a></li>
-                        <li><a class="dropdown-item" href="../Agences/Agences-Centre.html">Centre</a></li>
-                        <li><a class="dropdown-item" href="../Agences/Agences-Guyane.html">Guyane</a></li>
-                        <li><a class="dropdown-item" href="../Agences/Agences-Aquitaine.html">Nouvelle Aquitaine</a>
-                        </li>
-                        <li><a class="dropdown-item" href="../Agences/Agences-IDF.html">Île-de-France</a></li>
-                    </ul>
-                </li>
-                <li><a href="../actualite.php">Actualités</a></li>
-                <li><a href="../adhesion.php">Adhérer</a></li>
-                <li><a href="../formulaire.php">Connexion</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <img src="../img/Ami.png">
-    </section>
+<section class="hero">
+    <img src="img/Ami.png">
+</section>
 
     <section class="preambule">
         <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
@@ -199,33 +172,10 @@
 
 
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="contact-info">
-            <p><a href="mailto:contact@ami-nationale.com" class="email-link">contact@ami-nationale.com</a></p>
-            <p>03 85 29 46 00 | 06 12 45 02 09</p>
-            <p>132 Rue de la Charrière, 71000 Mâcon</p>
-        </div>
-        <div class="footer-links">
-            <a href="https://ami-nationale.com/politique-de-confidentialite/">Politique de confidentialité</a><br>
-            <a href="#">Mentions légales</a><br>
-            <a href="#">Devenir adhérent</a><br>
-            <a href="#">Nous contacter</a>
-        </div>
+<?php
+require_once 'footer.php';
+?>
 
-        <div class="social-media">
-            <a href="https://www.facebook.com/AMinathandi?locale=fr_FR"><img src="../img/facebook-icon.png"
-                    alt="Facebook"></a>
-            <a href="https://x.com/ami_nationale"><img src="../img/X-icon.png" alt="Twitter"></a>
-        </div>
-    </footer>
-
-
-
-
-
-    <!-- Inclure Bootstrap JavaScript via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

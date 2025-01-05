@@ -25,12 +25,12 @@
                 <a href="#" class="dropdown-toggle" id="dropdownMenu" data-bs-toggle="dropdown"
                    aria-expanded="false">Nos agences</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    <li><a class="dropdown-item" href="Agences/Agences-Rhone.html">Auvergne-Rhône-Alpes</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Bourgogne.html">Bourgogne Franche-Comté</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Centre.html">Centre</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Guyane.html">Guyane</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-Aquitaine.html">Nouvelle Aquitaine</a></li>
-                    <li><a class="dropdown-item" href="Agences/Agences-IDF.html">Île-de-France</a></li>
+                    <li><a class="dropdown-item" href="Agences-Rhone.php">Auvergne-Rhône-Alpes</a></li>
+                    <li><a class="dropdown-item" href="Agences-Bourgogne.php">Bourgogne Franche-Comté</a></li>
+                    <li><a class="dropdown-item" href="Agences-Centre.php">Centre</a></li>
+                    <li><a class="dropdown-item" href="Agences-Guyane.php">Guyane</a></li>
+                    <li><a class="dropdown-item" href="Agences-Aquitaine.php">Nouvelle Aquitaine</a></li>
+                    <li><a class="dropdown-item" href="Agences-IDF.php">Île-de-France</a></li>
                 </ul>
             </li>
             <li><a href="actualite.php">Actualités</a></li>

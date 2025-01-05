@@ -29,9 +29,7 @@ $userRepo = new SQLiteUserRepository($pdo);
 <body>
 
 <?php
-require_once 'header.php';
-require_once 'flash.php';
-messageFlash();
+require_once 'header.php';;
 ?>
 
 <h1>Qui a répondu ?</h1>
