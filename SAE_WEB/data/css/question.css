@@ -1,22 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.hero img{
+.hero img {
     width: 23%;
     display: block;
     margin: 0 auto 40px;
 }
 
-.form{
-    padding:0 600px;
+.form {
+    padding: 0 600px;
 }
 
-.form-question{
-    display:flex;
+.form-question {
+    display: flex;
     justify-content: center;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     padding-top: 50px;
 }
 
@@ -27,7 +27,7 @@
     border-radius: 8px;
 }
 
-.radio-button{
+.radio-button {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -90,7 +90,7 @@
     background: white;
 }
 
-.form-btn-container{
+.form-btn-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,9 +108,44 @@
     cursor: pointer;
     margin-top: 25px;
 }
+
 .form-btn:hover {
     background-color: #3b517a;
     color: #f8f9fa;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+    .form {
+        padding: 0 300px;
+    }
+    .form-btn {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        padding: 0 50px;
+    }
+    .hero img {
+        width: 35%;
+    }
+    .form-btn {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        padding: 0 20px;
+    }
+    .hero img {
+        width: 50%;
+    }
+    .form-btn {
+        width: 80%;
+    }
 }
