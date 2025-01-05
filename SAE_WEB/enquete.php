@@ -40,33 +40,39 @@ messageFlash();
 try {
     $stmt = $pdo->prepare("
         SELECT 
-    ORP.option AS libelle_reponse, 
-    COUNT(R.Id) AS nombre_reponses
-FROM 
-    Reponse R
-JOIN 
-    OptionsReponses ORP ON R.IdOption = ORP.IdOption
-WHERE 
-    ORP.IdQuestion = 1
-GROUP BY 
-    ORP.option;
+            ORP.option AS libelle_reponse, 
+            COUNT(R.Id) AS nombre_reponses,
+            ROUND(COUNT(R.Id) * 100.0 / (SELECT COUNT(*) FROM Reponse WHERE IdQuestion = 1), 2) AS pourcentage_reponses
+        FROM 
+            Reponse R
+        JOIN 
+            OptionsReponses ORP ON R.IdOption = ORP.IdOption
+        WHERE 
+            ORP.IdQuestion = 1
+        GROUP BY 
+            ORP.option;
     ");
     $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if ($data) {
         echo "<table class='table'>";
-        echo "<thead><tr><th>Réponse</th><th>Nombre de réponses</th></tr></thead><tbody>";
+        echo "<thead><tr><th>Réponse</th><th>Nombre de réponses</th><th>Pourcentage</th></tr></thead><tbody>";
         foreach ($data as $row) {
-            echo "<tr><td>" . htmlspecialchars($row['libelle_reponse']) . "</td><td>" . htmlspecialchars($row['nombre_reponses']) . "</td></tr>";
+            echo "<tr>
+                <td>" . htmlspecialchars($row['libelle_reponse']) . "</td>
+                <td>" . htmlspecialchars($row['nombre_reponses']) . "</td>
+                <td>" . htmlspecialchars($row['pourcentage_reponses']) . "%</td>
+            </tr>";
         }
         echo "</tbody></table>";
     } else {
         echo "<p>Aucune donnée disponible.</p>";
     }
 } catch (Exception $e) {
-    echo "<p>Erreur de récupération des données : " . $e->getMessage() . "</p>";
+    echo "<p>Erreur : " . htmlspecialchars($e->getMessage()) . "</p>";
 }
+
 ?>
 
 </body>
