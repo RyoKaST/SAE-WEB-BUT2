@@ -15,6 +15,21 @@
     margin-bottom: 20px;
 }
 
+/* Section utilisateur connecté */
+.auth-container p {
+    font-size: 16px;
+    color: #2B3A55;
+    margin-bottom: 20px;
+}
+
+.auth-container a.btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+
 .tabs {
     display: flex;
     justify-content: space-between;

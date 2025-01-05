@@ -31,10 +31,13 @@ if (isset($_SESSION['user'])) {
     }
     else
         $categ = 'administrateur';
-    // Utilisateur connecté : affiche un message de bienvenue
-    echo "<h2>Bienvenue, " . htmlspecialchars($_SESSION['user']['nom']) . " " . htmlspecialchars($_SESSION['user']['prenom']) . " !</h2>";
-    echo "<p> Vous êtes enregistré en tant qu'$categ  </p>";
-    echo "<a href='deconnexion.php'>Se déconnecter</a>";
+    ?>
+    <div class="auth-container">
+    <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['user']['nom']) . " " . htmlspecialchars($_SESSION['user']['prenom']); ?> !</h1>
+    <p>Vous êtes enregistré en tant qu'<strong><?php echo $categ; ?></strong>.</p>
+    <a href="Deconnexion.php" class="btn">Se déconnecter</a>
+</div>
+<?php
 } else {
     ?>
     <div id="auth">
@@ -98,9 +101,7 @@ if (isset($_SESSION['user'])) {
         </div>
     </div>
 <?php } // Fin de la vérification ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+
 
 </body>
 </html>
