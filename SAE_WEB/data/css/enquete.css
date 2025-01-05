@@ -1,61 +1,101 @@
+/* Titre général */
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #2B3A55;
+    border-bottom: 3px solid #2B3A55;
+    margin-bottom: 30px;
+}
+
+.question-section h2 {
+    color: #2B3A55;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2B3A55;
+}
+
+
 /* Table styling */
 .table {
     width: 90%;
     max-width: 800px;
     margin: 20px auto;
     border-collapse: collapse;
-    border: 1px solid #2B3A55;
+    border: 1px solid #E3E3E3;
     background-color: #FFFFFF;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    font-family: 'Arial', sans-serif;
 }
 
-h1{
-    text-align: center;
-    padding-top: 30px;
-}
-/* Table header */
+/* En-tête des tableaux */
 .table thead {
     background-color: #2B3A55;
     color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
 }
 
 .table thead th {
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
+    padding: 12px 20px;
 }
 
-/* Table body */
-.table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.table tbody tr:last-child {
-    border-bottom: none;
-}
-
+/* Contenu des tableaux */
 .table tbody td {
-    padding: 12px;
-    text-align: center;
+    padding: 12px 20px;
     font-size: 14px;
+    text-align: center;
     color: #2B3A55;
 }
 
-/* Table row hover effect */
-.table tbody tr:hover {
-    background-color: #f2f2f2;
+/* Lignes alternées */
+.table tbody tr:nth-child(even) {
+    background-color: #F9F9F9;
 }
 
-/* Responsive table design */
-@media (max-width: 600px) {
-    .table {
-        width: 100%;
-        font-size: 12px;
-    }
+/* Survol des lignes */
+.table tbody tr:hover {
+    background-color: #EAEAEA;
+}
 
-    .table thead {
-        font-size: 14px;
-    }
+/* Première colonne mise en valeur */
+.table tbody td:first-child {
+    font-weight: bold;
+    color: #2B3A55;
+}
+
+#charts {
+    display: flex;
+    flex-direction: column;  /* Aligne les éléments verticalement */
+    align-items: center;     /* Centre les éléments horizontalement */
+    justify-content: center; /* Optionnel : Centrage vertical */
+}
+
+
+.pie-chart-svg {
+    display: flex;
+    justify-content: center;  /* Centrage horizontal */
+    align-items: center;      /* Centrage vertical */
+    margin: 20px auto;
+    position: relative;       /* Ajouté pour positionnement plus précis si nécessaire */
+}
+
+
+.arc path {
+    stroke: #FFFFFF;
+    stroke-width: 2px;
+}
+
+.arc text {
+    font-size: 100px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-anchor: middle;
 }
