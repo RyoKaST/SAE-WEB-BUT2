@@ -33,7 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'nom' => $user->getNom(),
             'prenom' => $user->getPrenom(),
             'Idcateg' => $user->getIdcateg(),
+            'AComplete' => $user->getAComplete(),
+            'Id' => $user->getId(),
         ];
+
         $_SESSION['flash']['success'] = "Connexion réussie. Bienvenue, " . $user->getPrenom() . " !";
 
         header("Location: index.php");

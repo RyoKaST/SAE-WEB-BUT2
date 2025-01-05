@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $civilite = $_POST['signup-civil'] ?? null;
     $nom = $_POST['signup-last'] ?? null;
     $prenom = $_POST['signup-prenom'] ?? null;
-    $IdCateg = 1; //Valeur par defaut
+    $IdCateg = 1; // Valeur par défaut
 
     try {
         // Vérifier si l'utilisateur existe déjà
@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("L'email est déjà utilisé. Veuillez en choisir un autre.");
         }
 
-        // Inscription
-        $user = new User($email, $password, $civilite, $nom, $prenom, $IdCateg);
+        // Inscription sans ID (l'ID est auto-généré)
+        $user = new User($email, $password, $civilite, $nom, $prenom, $IdCateg, false);
         $retour = $userRepo->saveUser($user);
 
         if ($retour) {
@@ -43,4 +43,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-
