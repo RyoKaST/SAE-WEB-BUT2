@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Préparer l'insertion des réponses dans la base de données
-    $stmtInsert = $pdo->prepare('INSERT INTO Reponse (Id, IdQuestion, Reponse, IdOption) VALUES (:IdUser, :IdQuestion, :Reponse, :IdOption)');
+    $stmtInsert = $pdo->prepare('INSERT INTO Reponse (Id, IdQuestion, IdOption) VALUES (:IdUser, :IdQuestion, :IdOption)');
 
     // Insérer les réponses dans la base de données pour chaque question
     foreach ($reponses as $questionIndex => $reponse) {
@@ -50,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtInsert->execute([
                     ':IdUser' => $idUser,
                     ':IdQuestion' => $questionIndex,
-                    ':Reponse' => $reponse,
                     ':IdOption' => $option['IdOption']
                 ]);
             }
