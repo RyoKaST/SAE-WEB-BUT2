@@ -2,7 +2,6 @@
 if(!session_id())
     session_start();
 ?>
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -22,6 +21,7 @@ if(!session_id())
 require_once 'header.php';
 require_once 'flash.php';
 messageFlash();
+//Verifie si l'utilisateur est connecté
 if (isset($_SESSION['user'])) {
     $idcateg = intval($_SESSION['user']['Idcateg']);
     if ($idcateg === 1) {
@@ -100,8 +100,6 @@ if (isset($_SESSION['user'])) {
 
         </div>
     </div>
-<?php } // Fin de la vérification ?>
-
-
+<?php } ?>
 </body>
 </html>

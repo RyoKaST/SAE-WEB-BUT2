@@ -4,7 +4,7 @@ if(!session_id())
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Adhesion</title>
@@ -14,21 +14,19 @@ if(!session_id())
 
     <link rel="icon" type="image/png" href="./img/LogoAMI.png">
     <script src="./data/js/global.js" type="module"></script>
+
 </head>
 <body>
-<!-- Header -->
 <?php
 require_once 'header.php';
 ?>
 
 <div class="container">
     <h1 class="titleTop"> L’A.M.I à besoin de vous !</h1>
-
     <div class="row">
         <div class="col-sm-12 col-lg-12 col-xl-8 ">
             <img src="./img/handicap.jpg" class="imgStats" alt="Personne souriant à la vie en fauteil roulant">
         </div>
-
         <div class="col-sm-12 col-lg-12 col-xl-4">
             <div class="boxStats">
                 <strong>6,3 mio</strong><br>
@@ -183,7 +181,7 @@ require_once 'header.php';
 <?php
 require_once 'footer.php';
 ?>
-<script src="./data/js/adhesion.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+
+<script src="./data/js/adhesion.js" type="module"></script>
+
 </html>

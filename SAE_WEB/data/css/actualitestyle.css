@@ -12,6 +12,7 @@ body {
     text-align: justify;
 }
 
+/* Ligne de separation*/
 .separation{
     width: 95%;
     margin-left: auto;
@@ -74,7 +75,7 @@ body {
     padding: 3% 0; 
 }
 
-/* Responsive pour tablettes */
+/* Responsive */
 @media (max-width: 768px) {
     .navbar {
         height: 80px;
@@ -95,7 +96,7 @@ body {
     }
 }
 
-/* Responsive pour téléphones */
+/* Responsive */
 @media (max-width: 480px) {
     .hero {
          align-content: center;

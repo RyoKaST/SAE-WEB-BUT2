@@ -1,13 +1,11 @@
 <?php
-
+//Classe qui permet de faire la cpnnexion avec notre BD SqLite
 class BddConnect {
     private \PDO $pdo;
     protected string $db_file;
-
     public function __construct() {
-        $this->db_file = __DIR__ . '/BD/BD.db'; // Chemin vers votre fichier SQLite
+        $this->db_file = __DIR__ . '/BD/BD.db';
     }
-
     public function connexion() : \PDO {
         try {
             $dsn = "sqlite:$this->db_file";
@@ -17,7 +15,6 @@ class BddConnect {
         } catch (\PDOException $e) {
             die("Erreur de connexion à la base SQLite : " . $e->getMessage());
         }
-
         return $this->pdo;
     }
 }

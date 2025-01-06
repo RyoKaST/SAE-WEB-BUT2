@@ -12,8 +12,8 @@ $pdo = $bdd->connexion();
 $userRepo = new SQLiteUserRepository($pdo);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['signin-email'] ?? null;
-    $password = $_POST['signin-pwd'] ?? null;
+    $email = $_POST['signin-email'];
+    $password = $_POST['signin-pwd'];
 
     try {
         // Vérifier si l'utilisateur existe

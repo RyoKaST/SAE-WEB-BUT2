@@ -1,12 +1,4 @@
-/* Normalisation des styles de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* S'assurer que l'HTML et le body occupent toute la hauteur de l'écran */
-html, body {
+body {
     height: 100%; /* Utiliser 100% de la hauteur de la fenêtre */
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -14,22 +6,12 @@ html, body {
     flex-direction: column;
 }
 
-/* Conteneur général du site */
 .container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;  /* Assure que le body prend au moins la hauteur de la page */
 }
 
-/* Header */
-header {
-    background-color: #4a6393;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
-
-/* Style général pour la section formulaire */
 .form-container {
     background-color: white;
     border-radius: 8px;
@@ -38,60 +20,6 @@ header {
     margin-bottom: auto; /* Permet d'empêcher l'expansion excessive du formulaire */
 }
 
-/* Personnalisation des boutons radio */
-.radio-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid rgba(55, 75, 191, 0.71);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.radio-label:hover {
-    background-color: #f0f0f0;
-}
-
-.form-input-radio {
-    position: absolute;
-    opacity: 0;
-}
-
-.custom-radio {
-    height: 18px;
-    width: 18px;
-    margin-right: 15px;
-    border: 2px solid #dde3ec;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.form-input-radio:checked + .custom-radio {
-    background-color: #6a64f1;
-    border-color: #6a64f1;
-}
-
-.form-input-radio:checked + .custom-radio::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: white;
-}
-
-/* Style pour les boutons de soumission */
-.form-btn-container {
-    text-align: center;
-}
 
 .form-btn {
     font-size: 16px;
@@ -109,7 +37,6 @@ header {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Design du select */
 select.form-select {
     width: 100%;
     padding: 10px;
@@ -118,25 +45,6 @@ select.form-select {
     border: 1px solid #ddd;
 }
 
-/* Footer */
-footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    color: #333;
-    padding: 20px;
-    margin-top: auto; /* Permet au footer d'être toujours en bas de page */
-}
-
-footer a {
-    color: #6a64f1;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Style de message de confirmation quand le questionnaire est déjà soumis */
 .thanks-message {
     text-align: center;
     margin-top: 50px;

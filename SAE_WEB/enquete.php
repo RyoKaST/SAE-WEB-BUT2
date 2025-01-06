@@ -2,14 +2,13 @@
 if (!session_id()) {
     session_start();
 }
-
 require_once 'User.php';
 require_once 'BddConnect.php';
 require_once 'SQLiteUserRepository.php';
-
 $bdd = new BddConnect();
 $pdo = $bdd->connexion();
 
+//tableau des questions et de leurs indices pour pouvoir les afficher ensuite
 $questions = [
     1 => "Qui a répondu ?",
     2 => "Quel âge ?",
@@ -42,12 +41,12 @@ foreach ($questions as $id => $question) {
         $stmt->execute();
         $data[] = [
             'question' => $question,
-            'responses' => $stmt->fetchAll(PDO::FETCH_ASSOC)
+            'reponse' => $stmt->fetchAll(PDO::FETCH_ASSOC)
         ];
     } catch (Exception $e) {
         $data[] = [
             'question' => $question,
-            'responses' => [],
+            'reponse' => [],
             'error' => $e->getMessage()
         ];
     }

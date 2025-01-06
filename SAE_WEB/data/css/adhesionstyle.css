@@ -25,7 +25,7 @@
     text-align: right;
 }
 
-/* Permet d'aligner l'image avec les box */
+/*aligne l'image avec les box */
 .imgStats, .boxStats {
     min-height: 200px;
 }
@@ -52,6 +52,7 @@
     padding:0 200px 0 200px;
     margin-bottom: 20px;
 }
+
 /* Cercle du breadcrumb */
 .circle {
     width: 50px;
@@ -60,14 +61,13 @@
     background-color: #d3d3d3;
     border: 2px solid black;
 }
-/* Cercle du breadcrumb */
+
 .line {
     flex: 1;
     height: 3px;
     background-color: black;
 }
 
-/* Squelette de tous les forumlaires */
 .formBody{
     background-color:#2B3A55 ;
     padding: 0 10px 20px 10px;
@@ -75,7 +75,7 @@
     color:white;
 }
 
-/* Espacement entre tous les champs */
+
 .formBody label{
     padding-top: 1em;
 }
@@ -90,7 +90,7 @@
 
 }
 
-/* Stylise les valeurs des dons */
+
 .amount-box {
     font-size: 16px;
     background-color: white;
@@ -98,7 +98,7 @@
     padding:0 10px;
 }
 
-/* Stylise les champs de remplissage */
+
 .form input:not([type="checkbox"]) {
     width: 100%;
     padding: 8px;
@@ -106,7 +106,7 @@
     border-radius: 5px;
 }
 
-/* Masque le champ organisation */
+
 #divOrga{
     display:none;
 }
@@ -119,7 +119,6 @@
     margin:0 50px 0 50px;
 }
 
-/* Masque le champ de la carte bancaire */
 .card-form {
     display: none;
     text-align: left;
@@ -135,7 +134,6 @@
     font-size: 1.3em;
 }
 
-/* Conserve la taille de l'image */
 @media (min-width: 768px) {
     .imgStats{
         height: 97%;

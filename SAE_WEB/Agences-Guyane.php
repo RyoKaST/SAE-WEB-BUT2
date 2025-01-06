@@ -5,7 +5,6 @@ if (!session_id()) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +15,18 @@ if (!session_id()) {
     <script src="data/js/global.js" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 <?php
 require_once 'header.php';;
 ?>
-
 <section class="hero">
     <img src="img/Ami.png">
 </section>
-
     <section class="preambule">
         <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
             10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
         <h2> Choisissez le comité le plus proche de chez vous </h2>
     </section>
-
     <section class="Comite">
         <h2> Comité A.M.I de Cayenne </h2>
         <p> Représentant : TABET Sylvain <br>
@@ -43,7 +38,6 @@ require_once 'header.php';;
             Tél : 06 94 00 92 25<br>
             Courriel :contact@973.ami-nationale.com<br>
             TRAM T4 : ARRÊT HERRIOT CAGNE OU VÉNISSY. </p>
-
         <h2> Lettre au préfet et à l'ARS </h2>
         <p>A l’attention de M. Le Préfet de Guyane et de Madame la Directrice de l’ARS Guyane.<br>
             Copie à : M. le président de la CTG, Mme la présidente de l’APAJH, M. le directeur de l’APAJH<br>
@@ -165,17 +159,9 @@ require_once 'header.php';;
             Didy Niambi Davy<br>
             Présidente de la CDAPH Guyane et membre active de l’association Tout le Monde Compte
         </p>
-
     </section>
-
-
-
-
-
 <?php
 require_once 'footer.php';
 ?>
-
 </body>
-
 </html>

@@ -5,7 +5,6 @@ if (!session_id()) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +15,18 @@ if (!session_id()) {
     <script src="data/js/global.js" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 <?php
 require_once 'header.php';;
 ?>
-
 <section class="hero">
     <img src="img/Ami.png">
 </section>
-
     <section class="preambule">
         <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
             10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
         <h2> Choisissez le comité le plus proche de chez vous </h2>
     </section>
-
     <section class="Comite">
         <h2> Comité du Val de Marne </h2>
         <p> Représentant : Rémi Wagner<br>
@@ -40,7 +35,6 @@ require_once 'header.php';;
             Sur rendez-vous, en cas d'urgence laissez nous un message. 
             Tél : 06 68 75 78 64<br>
             Courriel :contact@94.ami-nationale.com </p>
-
         <h2> Hommage à Francois Rondel </h2>
         <p>Notre camarade François Rondel militant et responsable national de l’AMI et en région parisienne est parti
             rejoindre ses amis et sa famille le 4 mai 2023. Son départ est brutal mais cela faisait plusieurs années, et
@@ -116,17 +110,9 @@ require_once 'header.php';;
             
             Le Bureau National de l’AMI 2 mai 2005
         </p>
-
     </section>
-
-
-
-
-
 <?php
 require_once 'footer.php';
 ?>
-
 </body>
-
 </html>

@@ -1,11 +1,12 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    var backToTopButton = document.createElement("button");
+    const backToTopButton = document.createElement("button");
     backToTopButton.id = "backToTop";
     backToTopButton.textContent = "   ↑   ";
     document.body.appendChild(backToTopButton);
 
+    //Permet d'apparaitre seulement quand on scroll en bas
     window.addEventListener("scroll", function () {
         if (window.scrollY > 200) {
             backToTopButton.style.display = "block";
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+//Pour le formulaire: basculer d'authentification à enregsitrement
 document.addEventListener("DOMContentLoaded", function () {
     const tabButtons = document.querySelectorAll(".tab-btn");
     const tabContents = document.querySelectorAll(".tab-content");
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialisation
     initializeTabs();
 
-    // Ajoute l'écouteur d'événement pour les clics sur les boutons d'onglet
+    // pour les clics sur les boutons d'onglet
     tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const targetTab = button.getAttribute("data-tab");

@@ -5,7 +5,6 @@ if (!session_id()) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,22 +15,18 @@ if (!session_id()) {
     <script src="data/js/global.js" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 <?php
 require_once 'header.php';;
 ?>
-
 <section class="hero">
     <img src="img/Ami.png">
 </section>
-
     <section class="preambule">
         <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
             10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
         <h2> Choisissez le comité le plus proche de chez vous </h2>
     </section>
-
     <section class="Comite">
         <h2> Comité A.M.I de Venissieux </h2>
         <img src="../img/Rhone.jpg">
@@ -40,22 +35,20 @@ require_once 'header.php';;
             69200 VÉNISSIEUX<br>
             Permanences :<br>
             Lundi : 14h00 à 16h00.
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
-            Tél : 04 78 70 19 78 et  06 52 23 35 14<br>
+            Sur rendez-vous, en cas d'urgence laissez nous un message.
+            Tél : 04 78 70 19 78 et06 52 23 35 14<br>
             Courriel : amicd69@gmail.com<br>
             TRAM T4 : ARRÊT HERRIOT CAGNE OU VÉNISSY. </p>
-
         <h2> Comité A.M.I de Villeurbanne </h2>
         <p> Maison Berty ALBRECHT <br>
             14, Place Jules Grandclément <br>
             69100 VILLEURBANNE<br>
             Permanences :<br>
             Mardis : 14h00 à 18h00 / Jeudis : 14h00 à 16h00.
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
+            Sur rendez-vous, en cas d'urgence laissez nous un message.
             Tél : 04 78 54 78 18 et 06 52 23 35 14.<br>
-            Courriel : amicd69@gmail.com<br>
+            Courriel :amicd69@gmail.com<br>
             Bus C11 : Arrêt Arago/Place Grandclément. </p>
-
         <h2> RAPPORT MORAL 2023 DE L’AMI DU RHÔNE </h2>
         <p>L’activité de l’AMI dans le Rhône s’est encore développée en 2023.Nos permanences ne désemplissent pas. La
             baisse des moyens des services publics a des répercussions directes sur la vie associative et sur les
@@ -93,25 +86,19 @@ require_once 'header.php';;
             Merci à toutes et à tous pour votre investissement.
             A vous la parole !
         </p>
-
         <h2> Comité A.M.I de Chamberry </h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ql-_8EsfUs?si=J_UXbB5Kh664nMQl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ql-_8EsfUs?si=J_UXbB5Kh664nMQl" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p> Maison des associations <br>
             67, rue St François de Salles <br>
             73000 CHAMBERY<br>
             Permanences :<br>
             Lundi au vendredi de 14 h à 18 h.
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
+            Sur rendez-vous, en cas d'urgence laissez nous un message.
             Tél : 06.52.80.42.82<br>
-            Courriel : amisavoie@gmail.com</p>
-
+            Courriel :amisavoie@gmail.com</p>
     </section>
-
 <?php
 require_once 'footer.php';
 ?>
-
 </body>
-
 </html>

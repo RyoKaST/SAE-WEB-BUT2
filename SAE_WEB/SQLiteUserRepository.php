@@ -2,7 +2,6 @@
 
 class SQLiteUserRepository
 {
-
     private \PDO $dbConnexion;
 
     public function __construct(\PDO $dbConnexion)
@@ -12,7 +11,7 @@ class SQLiteUserRepository
 
     public function findUserByEmail(string $email): ?User
     {
-        // Assurez-vous que la connexion $pdo est bien définie
+
         $stmt = $this->dbConnexion->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->execute(['email' => $email]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +25,7 @@ class SQLiteUserRepository
                 $data['prenom'],
                 $data['IdCateg'],
                 (bool)$data['AComplete'],
-                (int)$data['Id']  // Récupérer l'ID
+                (int)$data['Id']
             );
         }
 
@@ -50,7 +49,7 @@ class SQLiteUserRepository
             'AComplete' => $user->getAComplete(),
         ]);
 
-        // Récupérer l'ID auto-incrémenté après l'insertion
+        // Récupére l'ID auto-incrémenté après l'insertion
         $userId = $this->dbConnexion->lastInsertId();
         $user->setId($userId);  // Mettez à jour l'ID dans l'objet User
         return true;

@@ -5,7 +5,6 @@ if (!session_id()) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@ if (!session_id()) {
     <script src="data/js/global.js" type="module"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 <?php
 require_once 'header.php';;
@@ -25,7 +23,6 @@ require_once 'header.php';;
 <section class="hero">
     <img src="img/Ami.png">
 </section>
-
     <section class="preambule">
         <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
             10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
@@ -37,9 +34,9 @@ require_once 'header.php';;
         <p> Centre Social Eugénie COTTON <br>
             172, rue de la Chanaye <br>
             71000 MACON<br>
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
+            Sur rendez-vous, en cas d'urgence laissez nous un message.
             Tél :  03 85 34 34 59<br>
-            Courriel : amicd71@gmail.com<br></p>
+            Courriel :amicd71@gmail.com<br></p>
 
         <h2> Nous avons besoin de vous ! </h2>
         <p>L'A.M.i. défend les personnes handicapées, invalides, les malades et leurs familles. Nous ne gérons aucune structure medico sociale car nous voulons garder notre liberté revendicative. <br>
@@ -50,18 +47,9 @@ require_once 'header.php';;
             
             "Nous avons besoin de bénévoles pour nos collectes de bouchons de liège et de radiographies qui nous permettent d'obtenir des financements".<br>
         </p>
-
-
     </section>
-
-
-
-
-
 <?php
 require_once 'footer.php';
 ?>
-
 </body>
-
 </html>

@@ -1,13 +1,7 @@
 <?php
-// Inclure la connexion à la base de données et démarrer la session
 require_once 'BddConnect.php';
 session_start();
-
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php"); // Rediriger si non connecté
-    exit;
-} ?>
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -32,7 +26,7 @@ $pdo = $bdd->connexion();
 
 $idUser = $_SESSION['user']['Id']; // ID de l'utilisateur
 
-// Vérifier si l'utilisateur a déjà complété le questionnaire
+// Vérifie si l'utilisateur a déjà complété le questionnaire
 $userStmt = $pdo->prepare("SELECT AComplete FROM Users WHERE Id = :idUser");
 $userStmt->execute(['idUser' => $idUser]);
 $user = $userStmt->fetch(PDO::FETCH_ASSOC);
@@ -51,9 +45,8 @@ if ($user && $user['AComplete']) {
             <a href='index.php' class='btn btn-primary mt-4'>Retour à l'accueil</a>
         </div>
     </div>";
-
-    include('footer.php'); // Inclure le footer
-    exit; // Fin de l'exécution si le formulaire est déjà complété
+    include('footer.php');
+    exit;
 }
 
 // Si le formulaire n'a pas été complété, on charge le formulaire
@@ -61,7 +54,7 @@ if ($user && $user['AComplete']) {
 $questionsStmt = $pdo->query("SELECT * FROM Questions");
 $questions = $questionsStmt->fetchAll(PDO::FETCH_ASSOC);
 
-include('header.php'); // Inclure le header pour la page questionnaire
+include('header.php');
 ?>
 
 <body>
@@ -75,12 +68,12 @@ include('header.php'); // Inclure le header pour la page questionnaire
                 <legend><?php echo $question['Question']; ?></legend>
 
                 <?php
-                // Récupérer les options pour chaque question
+                // Récupére les options de reponse pour chaque question
                 $optionsStmt = $pdo->prepare("SELECT * FROM OptionsReponses WHERE IdQuestion = :idQuestion");
                 $optionsStmt->execute(['idQuestion' => $question['IdQuestion']]);
                 $options = $optionsStmt->fetchAll(PDO::FETCH_ASSOC);
 
-                // Créer la liste déroulante pour chaque option
+                // Créer la liste déroulante pour chaque question
                 ?>
                 <select name="qst<?php echo $question['IdQuestion']; ?>" class="form-select" required>
                     <option value="" disabled selected>Sélectionner une option</option>
@@ -97,7 +90,6 @@ include('header.php'); // Inclure le header pour la page questionnaire
     </form>
 </div>
 
-<!-- Footer -->
 <?php require_once 'footer.php'; ?>
 </body>
 </html>

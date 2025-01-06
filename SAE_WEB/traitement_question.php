@@ -1,9 +1,6 @@
 <?php
-// Démarrer la session
 session_start();
-require_once 'BddConnect.php'; // Assure-toi que cette classe est bien incluse pour la connexion
-
-// Connexion à la base de données
+require_once 'BddConnect.php';
 $bdd = new BddConnect();
 $pdo = $bdd->connexion();
 
@@ -15,12 +12,11 @@ if (!isset($_SESSION['user']) || !isset($_SESSION['user']['Id'])) {
 
 $idUser = $_SESSION['user']['Id'];
 
-// Vérifier que les données du formulaire sont envoyées
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Récupérer les réponses du formulaire
     $reponses = [];
-
     // Traitement des réponses pour chaque question
     for ($i = 1; $i <= 7; $i++) {  // Par exemple pour 7 questions
         if (isset($_POST['qst' . $i])) {
@@ -62,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Rediriger avec un message de confirmation
     $_SESSION['flash']['success'] = "Merci d'avoir complété le questionnaire.";
-    header('Location: question.php'); // Page de confirmation après soumission
+    header('Location: question.php');
     exit;
 }
 

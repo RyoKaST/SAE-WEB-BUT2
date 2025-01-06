@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception("L'email est déjà utilisé. Veuillez en choisir un autre.");
         }
 
-        // Inscription sans ID (l'ID est auto-généré)
+        // Inscription sans ID (l'ID est auto-généré par la BD)
         $user = new User($email, $password, $civilite, $nom, $prenom, $IdCateg, false);
         $retour = $userRepo->saveUser($user);
 

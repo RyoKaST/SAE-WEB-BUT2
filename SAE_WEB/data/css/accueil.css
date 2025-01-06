@@ -1,18 +1,10 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Hero Section */
+/*image banniere */
 .hero {
     background: url('../../img/hero.jpg') center/cover no-repeat;
     height: 500px;
@@ -23,11 +15,10 @@ body {
 
 .hero h1 {
     font-size: 5rem;
-    -webkit-text-stroke: 2px;
+    -webkit-text-stroke: 2px; /*contour des lettres */
     -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
-/* Actions Section */
 .actions h2 {
     font-size: 2.5rem;
     margin-bottom: 50px;
@@ -35,7 +26,6 @@ body {
     color: #2B3A55;
 }
 
-/* Carousel */
 .carousel .carousel-inner {
     height: 500px;
 }
@@ -45,13 +35,14 @@ body {
     object-fit: cover;
 }
 
+/*btn carousel */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: black;
 }
 
 
-/* Responsive*/
+/* responsive */
 @media (max-width: 1024px) {
     .Text-cadre {
         flex: 1 1 45%;

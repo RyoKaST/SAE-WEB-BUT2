@@ -6,7 +6,6 @@ if (!session_id()) {
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,47 +19,44 @@ if (!session_id()) {
 
 <body>
 <?php
-require_once 'header.php';;
+require_once 'header.php';
 ?>
 
-    <!-- Hero -->
-    <section class="hero">
-        <img src="img/Ami.png">
-    </section>
+<section class="hero">
+    <img src="img/Ami.png">
+</section>
 
-    <section class="preambule">
-        <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
-            10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
-        <h2> Choisissez le comité le plus proche de chez vous </h2>
-    </section>
+<section class="preambule">
+    <h1> L’association A.M.I. dispose de plusieurs comités régionaux à travers toute la France. <br> Il y a plus de
+        10 comités dans 6 régions à travers toute la France et la Guyane. </h1>
+    <h2> Choisissez le comité le plus proche de chez vous </h2>
+</section>
 
-    <section class="Comite">
-        <h2> Comité A.M.I de Pessac </h2>
-        <p> Maison des Associations Bureau n° 3 <br>
-            Salle municipale de Saige Bureau n° 3 <br>
-            33600 PESSAC<br>
-            Permanences :<br>
-            Mercredis 10h à 11h30.
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
-            Tél : 06 72 91 69 97<br>
-            Courriel : contact@33.ami-nationale.com</p>
+<section class="Comite">
+    <h2> Comité A.M.I de Pessac </h2>
+    <p> Maison des Associations Bureau n° 3 <br>
+        Salle municipale de Saige Bureau n° 3 <br>
+        33600 PESSAC<br>
+        Permanences :<br>
+        Mercredis 10h à 11h30.
+        Sur rendez-vous, en cas d'urgence laissez nous un message.
+        Tél : 06 72 91 69 97<br>
+        Courriel :contact@33.ami-nationale.com</p>
 
-        <h2> Comité A.M.I de Bruges </h2>
-        <p> Maison Municipale de Bruges <br>
-            63, Rue André Messager <br>
-            33520 Bruges<br>
-            Permanences :<br>
-            Tous les mercredis à partir de 15h.
-            Sur rendez-vous, en cas d'urgence laissez nous un message. 
-            Tél : 04 78 54 78 18<br>
-            Courriel : contact@33.ami-nationale.com </p>
-        </p>
-
-    </section>
-
-    <?php
-    require_once 'footer.php';
-    ?>
+    <h2> Comité A.M.I de Bruges </h2>
+    <p> Maison Municipale de Bruges <br>
+        63, Rue André Messager <br>
+        33520 Bruges<br>
+        Permanences :<br>
+        Tous les mercredis à partir de 15h.
+        Sur rendez-vous, en cas d'urgence laissez nous un message.
+        Tél : 04 78 54 78 18<br>
+        Courriel :contact@33.ami-nationale.com </p>
+    </p>
+</section>
+<?php
+require_once 'footer.php';
+?>
 
 </body>
 
