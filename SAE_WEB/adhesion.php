@@ -143,7 +143,7 @@ require_once 'header.php';
 
 
         <div class="col-sm-12 col-md-4 space">
-            <h1 class="titleForm">PAYEMENT</h1>
+            <h1 class="titleForm">PAIEMENT</h1>
             <div class="formBody form" id="payement-container">
                 <div class ="payment-option">
                     <div onclick="showCardForm()">
@@ -170,6 +170,8 @@ require_once 'header.php';
                     <input type="text" id="cvv" placeholder="123">
 
                     <button class="back-button" onclick="hideCardForm()">Retour</button>
+                    <button class="confirm-button"">Valider</button>
+
                 </div>
             </div>
         </div>

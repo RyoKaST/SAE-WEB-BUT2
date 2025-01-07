@@ -124,8 +124,9 @@
     text-align: left;
 }
 
-/* Stylise le bouton retour */
-.back-button {
+/* Stylise le bouton */
+.back-button,
+.confirm-button {
     background-color: #2B3A55;
     color:white;
     border:none;
@@ -133,6 +134,7 @@
     margin: 10px auto 0 auto;
     font-size: 1.3em;
 }
+
 
 @media (min-width: 768px) {
     .imgStats{
