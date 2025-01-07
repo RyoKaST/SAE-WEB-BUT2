@@ -101,33 +101,28 @@
     }
 
     #navList li {
-        text-align: center; /* Centre le texte */
-        padding: 10px 0; /* Ajoute un espace entre les items */
+        text-align: center;
+        padding: 10px 0;
     }
 
     .header nav ul {
-        display: none;
+        display:flex;
+        flex-direction: column;
         position: absolute;
         left: 0;
-        top:10%;
+        top:-500%;
         width: 100%;
+        z-index:-1;
         background-color: #2B3A55;
-        height: 50vh;
-    }
-    .header nav ul li{
-        text-align: left;
-        padding-bottom: 4em;
+        transition: top 0.8s ease; /* Animation fluide pour la position verticale */
     }
 }
 
 .header nav ul.shownav {
-    display:flex;
-    flex-direction: column;
+
     margin: 0;
     padding: 0;
-    top: 0%;
-    height: 250px;
-
+    top: 0;
 }
 
 .header nav ul {
@@ -305,10 +300,6 @@
 }
 
 @media (max-width: 768px) {
-    .header nav ul {
-        display: none;
-    }
-
     .footer {
         flex-direction: column;
         text-align: center;
