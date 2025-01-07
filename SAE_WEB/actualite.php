@@ -23,7 +23,7 @@ if (!session_id())
         ?>
         <section class="hero">
             <div class="annonce">
-            <h1 id="Actualite">Actualité</h1>
+            <h1 id="Actualite">Actualités</h1>
             </div>
         </section>
         <div class="container">
