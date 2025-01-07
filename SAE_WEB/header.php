@@ -6,7 +6,16 @@
         <img src="img/LogoAMI.png" alt="Logo AMI" class="logo">
     </a>
     <nav>
-        <ul>
+
+        <div class="burgerButton" id="check">
+            <div class="burgerLines" id="burgerLines">
+                <span class="line-1"></span>
+                <span class="line-2"></span>
+                <span class="line-3"></span>
+            </div>
+        </div>
+
+        <ul id="navList">
             <?php
             if (isset($_SESSION['user'])) {
                 $idcateg = intval($_SESSION['user']['Idcateg']); // S'assurer que c'est un entier

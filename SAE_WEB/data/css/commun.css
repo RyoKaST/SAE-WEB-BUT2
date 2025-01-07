@@ -24,6 +24,80 @@
 }
 
 /* Navigation */
+
+.burgerButton input[type="checkbox"] {
+    display: none;
+}
+
+.burgerButton{
+    width: 70px;
+    height: 70px;
+    background-image: linear-gradient(to right, #e91e63, #f44336);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.burgerLines{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.burgerLines span{
+    background: #fff;
+    width: 60%;
+    height: 4px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s, width 0.5s;
+}
+
+.burgerLines .line-1 {
+    transform: translate(-50%, -14px);
+}
+
+.burgerLines .line-3 {
+    transform: translate(-50%, 10px);
+}
+
+.openmenu .line-1{
+    transform:translate(-50%, -50%) rotate(-45deg);
+}
+
+.openmenu .line-2{
+    width: 0;
+}
+
+.openmenu .line-3{
+    transform:translate(-50%, -50%) rotate(45deg);
+}
+
+@media(max-width: 769px){
+    .header nav ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        top:10%;
+        width: 100%;
+        z-index: 100;
+        background-color: #2B3A55;
+        height: 100vh;
+    }
+    .header nav ul li{
+        text-align: left;
+        padding-bottom: 4em;
+    }
+}
+
+.header nav ul.shownav {
+    display:flex;
+    flex-direction: column;
+}
+
 .header nav ul {
     display: flex;
     align-items: center;
@@ -42,7 +116,6 @@
     color: #fff;
     text-decoration: none;
     font-size: 20px;
-
 }
 
 .header nav ul li a .icon {
@@ -65,8 +138,8 @@
 .header nav ul li .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 210%;
+    left:-50%;
     background-color: #2B3A55;
     list-style: none;
     padding: 0;
@@ -84,7 +157,8 @@
 }
 
 .header nav ul li:hover .dropdown-menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Optionally add hover effect */
@@ -200,12 +274,8 @@
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-    }
-
     .header nav ul {
-        gap: 20px;
+        display: none;
     }
 
     .footer {
@@ -223,5 +293,11 @@
     .footer .footer-links a,
     .footer .social-media a {
         font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) {
+    .burgerButton {
+        display: none;
     }
 }

@@ -181,7 +181,6 @@ require_once 'header.php';
 <?php
 require_once 'footer.php';
 ?>
-
-<script src="./data/js/adhesion.js" type="module"></script>
-
+<script src="./data/js/adhesion.js"></script>
+</body>
 </html>

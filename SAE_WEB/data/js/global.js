@@ -1,4 +1,10 @@
+const navList = document.getElementById('navList');
+const menu = document.getElementById("burgerLines")
 
+menu.onclick = function (){
+    menu.classList.toggle("openmenu")
+    navList.classList.toggle("shownav"); // Affiche/masque la Navbar
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const backToTopButton = document.createElement("button");
