@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .text(`${NbQuestion}. ${questionData.question}`);
 
         if (isTable) {
-                createTable(section, questionData.reponse);
+            createTable(section, questionData.reponse);
         } else {
-                createPieChart(section, questionData.reponse);
+            createPieChart(section, questionData.reponse);
         }
     });
 

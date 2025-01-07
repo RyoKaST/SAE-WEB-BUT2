@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les réponses du formulaire
     $reponses = [];
     // Traitement des réponses pour chaque question
-    for ($i = 1; $i <= 7; $i++) {  // Par exemple pour 7 questions
+    for ($i = 1; $i <= 9; $i++) {  // Par exemple pour 7 questions
         if (isset($_POST['qst' . $i])) {
             $reponses[$i] = $_POST['qst' . $i];
         } else {
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmtUpdate->execute([':IdUser' => $idUser]);
 
     // Rediriger avec un message de confirmation
-    $_SESSION['flash']['success'] = "Merci d'avoir complété le questionnaire.";
+    //$_SESSION['flash']['success'] = "Merci d'avoir complété le questionnaire.";
     header('Location: question.php');
     exit;
 }

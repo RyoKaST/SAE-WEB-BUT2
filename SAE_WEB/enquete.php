@@ -10,13 +10,15 @@ $pdo = $bdd->connexion();
 
 //tableau des questions et de leurs indices pour pouvoir les afficher ensuite
 $questions = [
-    1 => "Qui a répondu ?",
-    2 => "Quel âge ?",
-    3 => "Votre logement actuel répond-il aux normes d’accessibilité ?",
-    4 => "Trouvez-vous que votre lieu de vie est adapté à vos besoins spécifiques liés à votre handicap ?",
-    5 => "Ce lieu de vie correspond-il à votre choix ?",
-    6 => "Avez-vous un accès facile aux soins médicaux dont vous avez besoin ?",
-    7 => "Sentez-vous isolé ou exclus socialement ?"
+    1 => "Quel est votre âge ?",
+    2 => "Dans quelle région résidez-vous ?",
+    3 => "Trouvez-vous que votre lieu de vie est adapté à vos besoins spécifiques liés à votre handicap ?",
+    4 => "Votre lieu de vie correspond-il à votre choix personnel ?",
+    5 => "Quelle est votre situation actuelle ?",
+    6 => "Avez-vous des activités scolaires ou professionnelles ?",
+    7 => "Ressentez-vous de l’isolement ou une forme d’exclusion sociale ?",
+    8 => "Disposez-vous de toute l’aide nécessaire pour répondre à vos besoins ?",
+    9 => "De quels types d’interventions ou de soutien avez-vous besoin ?"
 ];
 
 $data = [];
