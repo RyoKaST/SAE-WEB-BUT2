@@ -138,8 +138,8 @@
 .header nav ul li .dropdown-menu {
     display: none;
     position: absolute;
-    top: 210%;
-    left:-50%;
+    top: 100%;
+    left: -50%;
     background-color: #2B3A55;
     list-style: none;
     padding: 0;
@@ -157,8 +157,7 @@
 }
 
 .header nav ul li:hover .dropdown-menu {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
 
 /* Optionally add hover effect */
