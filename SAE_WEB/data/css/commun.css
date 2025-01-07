@@ -30,8 +30,8 @@
 }
 
 .burgerButton{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-image: linear-gradient(to right, #e91e63, #f44336);
     border-radius: 5px;
     cursor: pointer;
@@ -76,16 +76,19 @@
     transform:translate(-50%, -50%) rotate(45deg);
 }
 
-@media(max-width: 769px){
+@media(max-width: 768px){
+    #navList{
+        margin-top: 90px;
+    }
+
     .header nav ul {
         display: none;
         position: absolute;
         left: 0;
         top:10%;
         width: 100%;
-        z-index: 100;
         background-color: #2B3A55;
-        height: 100vh;
+        height: 50vh;
     }
     .header nav ul li{
         text-align: left;

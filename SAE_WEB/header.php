@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 
-<header class="header">
+<header class="header sticky-top">
     <a href="accueil.php">
         <img src="img/LogoAMI.png" alt="Logo AMI" class="logo">
     </a>
