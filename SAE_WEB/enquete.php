@@ -9,17 +9,13 @@ $bdd = new BddConnect();
 $pdo = $bdd->connexion();
 
 //tableau des questions et de leurs indices pour pouvoir les afficher ensuite
-$questions = [
-    1 => "Quel est votre âge ?",
-    2 => "Dans quelle région résidez-vous ?",
-    3 => "Trouvez-vous que votre lieu de vie est adapté à vos besoins spécifiques liés à votre handicap ?",
-    4 => "Votre lieu de vie correspond-il à votre choix personnel ?",
-    5 => "Quelle est votre situation actuelle ?",
-    6 => "Avez-vous des activités scolaires ou professionnelles ?",
-    7 => "Ressentez-vous de l’isolement ou une forme d’exclusion sociale ?",
-    8 => "Disposez-vous de toute l’aide nécessaire pour répondre à vos besoins ?",
-    9 => "De quels types d’interventions ou de soutien avez-vous besoin ?"
-];
+$questions = [];
+try {
+    $stmt = $pdo->query("SELECT IdQuestion, Question AS question FROM Questions ORDER BY IdQuestion");
+    $questions = $stmt->fetchAll(PDO::FETCH_KEY_PAIR); // Retourne un tableau associatif IdQuestion => question
+} catch (Exception $e) {
+    die("Erreur lors de la récupération des questions : " . $e->getMessage());
+}
 
 $data = [];
 
@@ -37,7 +33,8 @@ foreach ($questions as $id => $question) {
             WHERE 
                 ORP.IdQuestion = :id
             GROUP BY 
-                ORP.option;
+                ORP.option
+            ORDER BY 2 DESC;
         ");
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     Data.forEach((questionData, index) => {
         const NbQuestion = index + 1; //Pour avoir le numero de question
-        const isTable = [1, 2].includes(NbQuestion); //Verifie si l'indice de la q est 1 ou 2 car ces questions sont des tableaux
+        const isTable = [1, 2, 5, 9].includes(NbQuestion); //Verifie si l'indice de la q est 1 ou 2 car ces questions sont des tableaux
 
         //On ajoute une nouvelle div pour la question (conteneur)
         const section = chartsContainer
@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // couleurs du camembert
         const color = d3.scaleOrdinal([
-            "#212E53",
-            "#4A919E",
+            "#3ca5bd",
+            "#83a1b3",
             "#BED3C3",
         ]);
 
