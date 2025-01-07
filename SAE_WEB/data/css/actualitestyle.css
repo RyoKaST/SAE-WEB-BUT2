@@ -19,25 +19,12 @@ body {
     margin-right: auto;
 }
 
-.textnav {
-    color: white;
-    font-size: 1.2rem; 
-    margin-bottom: -70px;
-    padding-right: 20px;
-    text-decoration: none;
-}
-
 .sectionTitre{
     display: flex;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
     color: #2B3A55;
-}
-
-.logo {
-    height: 90%; 
-    margin: 0;
 }
 
 .annonce h1{
@@ -49,8 +36,6 @@ body {
     background: url('../../img/lukas.png') center/cover no-repeat;
     height: 500px;
     position: relative;
-    text-align: center;
-    color: #fff;
     z-index: -1;
     margin-bottom: 20px;
 }
@@ -84,47 +69,23 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .navbar {
-        height: 80px;
-        justify-content: space-between;
-    }
-    
-    .annonce {
-        margin-left: 25%;
-        width: 100%;
-        height: 50%;
-        margin-top: -130px;
-        font-size: 6vw;
-    }
-
-    .hero{
-        background: none;
-        margin-bottom: -200px;
+    .hero {
+        background-position: center center;
+        height: 300px;
     }
 }
 
 /* Responsive */
 @media (max-width: 480px) {
     .hero {
-         align-content: center;
-         background: none;
+        background-position: center center;
+        height: 300px;
     }
 
-    .annonce {
-        margin-left: 25%;
-        height: 50%;
-        font-size: 8vw;
-        margin-top: -130px;
-    }
 }
 
 @media (min-width: 769px) {
-    .navMenu {
-        display: none; 
-    }
-
     .annonce h1{
         font-size: 5vw;
     }
-
 }
