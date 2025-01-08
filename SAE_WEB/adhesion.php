@@ -154,6 +154,10 @@ require_once 'header.php';
                         <img src="https://img.icons8.com/ios-filled/100/000000/paypal.png" alt="PayPal">
                         <p>PAYPAL</p>
                     </div>
+                    <div>
+                        <img src="./img/cheque.png">
+                        <p>CHEQUIER</p>
+                    </div>
                 </div>
 
                 <div class="card-form" id="card-form">

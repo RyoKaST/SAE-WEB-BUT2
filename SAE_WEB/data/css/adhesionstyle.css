@@ -116,12 +116,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-content: center;
+    align-items: center;
     margin:0 50px 0 50px;
 }
 
 .card-form {
     display: none;
     text-align: left;
+}
+
+.payment-option div {
+    width: 45%; /* Chaque élément occupe environ la moitié d'une ligne */
+    text-align: center; /* Centrer le texte sous l'icône */
 }
 
 /* Stylise le bouton */
