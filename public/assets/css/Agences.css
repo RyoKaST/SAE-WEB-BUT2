@@ -3,8 +3,11 @@
     margin-bottom: 100px;
 }
 
+.hero img{
+    width: 50%;
+}
+
 .preambule {
-    text-align: justify;
     margin: 20px auto 40px;
     max-width: 80%; 
     line-height: 1.8;
@@ -30,7 +33,6 @@
     font-size: 22px;
     color: #2B3A55;
     padding-right: 100px;
-    text-align: justify;
 }
 
 .Comite iframe{
