@@ -7,7 +7,8 @@ if (!session_id())
     <head>
     <meta charset="utf-8">
     <title>A.M.I - Actualité</title>
-    <link rel="stylesheet" href="../../public/assets/css/actualitestyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../public/assets/css/actualitestyle.css">
     <link rel="stylesheet" href="../../public/assets/css/commun.css">
     <link rel="icon" type="image/png" href="../../public/assets/img/LogoAMI.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
